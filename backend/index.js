@@ -1,5 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
+const kakaoRoute = require('./routes/kakao');
+
 const app = express();
 const port = 3000;
 
@@ -8,6 +12,8 @@ app.use(
     origin: 'http://localhost:5173',
   })
 );
+
+app.use('/api/kakao', kakaoRoute);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
