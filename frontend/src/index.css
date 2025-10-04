@@ -1,1 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap');
 @import 'tailwindcss';
+
+* {
+  font-family: 'Noto Serif KR', serif;
+}
