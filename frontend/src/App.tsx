@@ -11,7 +11,11 @@ function App() {
       <div className='min-h-screen w-screen'>
         <Header onClick={() => setCurrentView('intro')} />
         <main className='mt-8 flex flex-col items-center justify-center px-8'>
-          {currentView === 'intro' ? <IntroScreen /> : <MainScreen />}
+          {currentView === 'intro' ? (
+            <IntroScreen onClick={() => setCurrentView('main')} />
+          ) : (
+            <MainScreen />
+          )}
         </main>
       </div>
     </div>
