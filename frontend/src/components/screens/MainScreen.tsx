@@ -9,6 +9,7 @@ function MainScreen() {
     lat: 37.56682420267543,
     lon: 126.978652258823,
   });
+  const [date, setDate] = useState<Date>(new Date());
 
   return (
     <div className='flex flex-col items-center gap-8'>
@@ -16,7 +17,7 @@ function MainScreen() {
         coordinate={coordinate}
         setCoordinate={setCoordinate}
       />
-      <CalendarContainer />
+      <CalendarContainer date={date} setDate={setDate} />
       <MoonContainer />
       <WeatherContainer />
     </div>
