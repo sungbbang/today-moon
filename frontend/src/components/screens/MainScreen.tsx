@@ -18,7 +18,7 @@ function MainScreen() {
         setCoordinate={setCoordinate}
       />
       <CalendarContainer date={date} setDate={setDate} />
-      <MoonContainer />
+      <MoonContainer date={date} coordinate={coordinate} />
       <WeatherContainer />
     </div>
   );
