@@ -39,6 +39,7 @@ export function getMoonPhaseName(imageIdx: number) {
   if (23 <= imageIdx && imageIdx <= 28) {
     return { ko: '그믐달', en: 'waning crescent' };
   }
+  return { ko: '', en: '' };
 }
 
 export const moonPhaseDescriptions: Record<string, string> = {
