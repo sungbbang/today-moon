@@ -31,7 +31,7 @@ function CalendarContainer({
   };
 
   return (
-    <div className='flex w-full max-w-lg items-center justify-between gap-x-8 md:gap-x-12'>
+    <div className='flex w-full max-w-lg items-center justify-between'>
       <CalendarNavButton onClick={() => changeDate(-1)} aria-label='이전 날짜'>
         <IoIosArrowBack size={24} />
       </CalendarNavButton>
