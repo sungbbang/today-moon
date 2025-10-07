@@ -25,9 +25,9 @@ function CalendarContainer({
   };
 
   const changeDate = (days: number) => {
-    setDate(
-      new Date(date.getFullYear(), date.getMonth(), date.getDate() + days),
-    );
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + days);
+    setDate(newDate);
   };
 
   return (
