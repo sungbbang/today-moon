@@ -2,6 +2,8 @@ import { IoIosLink } from 'react-icons/io';
 import { SiKakaotalk } from 'react-icons/si';
 import { useKakao } from '../../hooks/useKakao';
 
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
+
 function WishResult({ onClose }: { onClose: () => void }) {
   useKakao(import.meta.env.VITE_KAKAO_JS_KEY);
 
@@ -16,16 +18,16 @@ function WishResult({ onClose }: { onClose: () => void }) {
         imageUrl:
           'https://science.nasa.gov/wp-content/uploads/2023/08/full.jpg',
         link: {
-          mobileWebUrl: 'https://yourdomain.com/',
-          webUrl: 'https://yourdomain.com/',
+          mobileWebUrl: FRONTEND_URL,
+          webUrl: FRONTEND_URL,
         },
       },
       buttons: [
         {
           title: '소원 빌러가기',
           link: {
-            mobileWebUrl: 'https://yourdomain.com/',
-            webUrl: 'https://yourdomain.com/',
+            mobileWebUrl: FRONTEND_URL,
+            webUrl: FRONTEND_URL,
           },
         },
       ],
@@ -33,7 +35,7 @@ function WishResult({ onClose }: { onClose: () => void }) {
   };
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText('https://yourdomain.com/');
+    navigator.clipboard.writeText(FRONTEND_URL);
     alert('링크가 복사되었습니다!');
   };
 
