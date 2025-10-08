@@ -35,6 +35,7 @@ function WishForm({ setIsSubmitted }: WishFormProps) {
 
       <form onSubmit={handleSubmit} className='space-y-4 rounded-xl sm:p-4'>
         <input
+          required
           ref={inputRef}
           value={wish}
           onChange={e => setWish(e.target.value)}
