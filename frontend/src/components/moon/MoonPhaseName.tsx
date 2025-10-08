@@ -1,5 +1,3 @@
-import React from 'react';
-
 function MoonPhaseName({ nameKo, nameEn }: { nameKo: string; nameEn: string }) {
   return (
     <div className='space-x-2 text-center tracking-wide text-white capitalize'>

@@ -1,4 +1,3 @@
-import React from 'react';
 import MoonImage from './MoonImage';
 import { getMoonPhase, getMoonTimes } from '../../utils/moon';
 import MoonInfo from './MoonInfo';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LocationContainer from '../location/LocationContainer';
 import CalendarContainer from '../calendar/CalendarContainer';
 import MoonContainer from '../moon/MoonContainer';

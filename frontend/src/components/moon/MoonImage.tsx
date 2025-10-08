@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function MoonImage({ imageIdx }: { imageIdx: number }) {
   const [imageLoaded, setImageLoaded] = useState(false);

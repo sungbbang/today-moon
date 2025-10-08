@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import IntroScreen from './components/screens/IntroScreen';
 import MainScreen from './components/screens/MainScreen';

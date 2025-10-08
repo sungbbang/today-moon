@@ -1,5 +1,3 @@
-import React from 'react';
-
 const HOVER = `hover:text-black hover:from-amber-200 hover:to-yellow-400 hover:text-slate-950 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl`;
 
 function IntroScreen({ onClick }: { onClick: () => void }) {

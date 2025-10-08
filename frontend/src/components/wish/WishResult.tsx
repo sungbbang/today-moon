@@ -1,4 +1,3 @@
-import React from 'react';
 import { IoIosLink } from 'react-icons/io';
 import { SiKakaotalk } from 'react-icons/si';
 import { useKakao } from '../../hooks/useKakao';

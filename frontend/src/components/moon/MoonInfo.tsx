@@ -1,4 +1,3 @@
-import React from 'react';
 import { WiMoonrise, WiMoonset } from 'react-icons/wi';
 import MoonPhaseName from './MoonPhaseName';
 import { getMoonPhaseName, moonPhaseDescriptions } from '../../utils/moon';

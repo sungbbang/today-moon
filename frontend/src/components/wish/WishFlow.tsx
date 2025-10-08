@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import WishResult from './WishResult';
 import WishForm from './WishForm';
 

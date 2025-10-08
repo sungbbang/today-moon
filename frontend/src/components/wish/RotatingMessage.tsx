@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const messages = [
   '오늘 총 32명이 소원을 빌었어요 😀',
