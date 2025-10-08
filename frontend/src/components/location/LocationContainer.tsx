@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { IoLocationOutline } from 'react-icons/io5';
-import LocationModal from './LocationModal';
 import LocationSearchBox from './LocationSearchBox';
 import { useAddressByCoordinate } from '../../hooks/useAddressFromCoord';
 import { IoEarthOutline } from 'react-icons/io5';
+import Modal from '../Modal';
 
 type LocationContainerProps = {
   coordinate: { lat: number; lon: number };
@@ -57,12 +57,12 @@ function LocationContainer({
       </div>
 
       {isModalOpen && (
-        <LocationModal onClose={() => setIsModalOpen(false)}>
+        <Modal onClose={() => setIsModalOpen(false)}>
           <LocationSearchBox
             onClose={() => setIsModalOpen(false)}
             setCoordinate={setCoordinate}
           />
-        </LocationModal>
+        </Modal>
       )}
     </div>
   );

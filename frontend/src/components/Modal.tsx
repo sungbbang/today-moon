@@ -1,11 +1,11 @@
 import React from 'react';
 
-function LocationModal({
-  onClose,
+function Modal({
   children,
+  onClose,
 }: {
-  onClose: () => void;
   children: React.ReactNode;
+  onClose: () => void;
 }) {
   return (
     <div
@@ -23,4 +23,4 @@ function LocationModal({
   );
 }
 
-export default LocationModal;
+export default Modal;
