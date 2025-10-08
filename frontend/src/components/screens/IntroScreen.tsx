@@ -5,10 +5,13 @@ const HOVER = `hover:text-black hover:from-amber-200 hover:to-yellow-400 hover:t
 function IntroScreen({ onClick }: { onClick: () => void }) {
   return (
     <div className='absolute inset-0 flex flex-col items-center justify-center px-4 text-center'>
-      <p className='mb-2 text-xl tracking-wide sm:text-2xl md:text-3xl'>
+      <p className='animate-fade-in-up mb-2 text-xl tracking-wide opacity-0 sm:text-2xl md:text-3xl'>
         오늘 하루 어땠나요?
       </p>
-      <p className='mb-8 text-xl tracking-wide sm:text-2xl md:text-3xl'>
+      <p
+        className='animate-fade-in-up mb-8 text-xl tracking-wide opacity-0 sm:text-2xl md:text-3xl'
+        style={{ animationDelay: '0.3s' }}
+      >
         하루의 끝을 <span className='font-bold text-yellow-200'>달</span>과 함께
         해요.
       </p>
