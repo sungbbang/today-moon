@@ -20,7 +20,10 @@ function LocationSearchBox({
       navigator.geolocation.getCurrentPosition(
         position => {
           const { latitude, longitude } = position.coords;
-          setCoordinate({ lat: latitude, lon: longitude });
+          setCoordinate({
+            lat: Number(latitude.toFixed(4)),
+            lon: Number(longitude.toFixed(4)),
+          });
           onClose();
         },
         error => {
