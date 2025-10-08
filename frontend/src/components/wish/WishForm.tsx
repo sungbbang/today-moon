@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import RotatingMessages from './RotatingMessage';
+import CategoriesSelect from './CategoriesSelect';
 
 interface WishFormProps {
   setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function WishForm({ setIsSubmitted }: WishFormProps) {
-  const [wish, setWish] = useState('');
+  const [wish, setWish] = useState<string>('');
+  const [category, setCategory] = useState<string>('사랑');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,8 +20,12 @@ function WishForm({ setIsSubmitted }: WishFormProps) {
       return;
     }
 
-    setIsSubmitted(true);
-    setWish('');
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsSubmitted(true);
+      setWish('');
+      setIsLoading(false);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -34,6 +41,8 @@ function WishForm({ setIsSubmitted }: WishFormProps) {
       <RotatingMessages />
 
       <form onSubmit={handleSubmit} className='space-y-4 rounded-xl sm:p-4'>
+        <CategoriesSelect value={category} onChange={setCategory} />
+
         <input
           required
           ref={inputRef}
@@ -45,10 +54,11 @@ function WishForm({ setIsSubmitted }: WishFormProps) {
         />
 
         <button
+          disabled={isLoading}
           type='submit'
           className='w-full rounded-lg bg-gradient-to-r from-indigo-600 to-purple-700 py-3 text-sm font-medium text-white shadow-md transition-all duration-200 hover:from-indigo-500 hover:to-purple-600 hover:shadow-lg hover:shadow-indigo-500/30 md:text-lg'
         >
-          제출
+          {isLoading ? '제출 중...' : '제출'}
         </button>
       </form>
 
