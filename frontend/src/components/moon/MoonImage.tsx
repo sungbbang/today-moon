@@ -28,7 +28,7 @@ function MoonImage({ imageIdx }: { imageIdx: number }) {
           <img
             src={moonImage}
             alt='달 사진'
-            className='h-full w-full object-cover brightness-125 transition-transform duration-300 hover:scale-103 hover:rotate-5'
+            className='h-full w-full object-cover p-6 brightness-125 transition-transform duration-300 hover:scale-103 hover:rotate-5 sm:p-0'
           />
         </div>
       )}
