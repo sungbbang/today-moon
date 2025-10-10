@@ -64,7 +64,7 @@ function LocationSearchBox({
         onChange={e => setSearchWord(e.target.value)}
         type='text'
         placeholder='검색어를 입력하세요.'
-        className='mt-6 w-full rounded border border-gray-600 bg-gray-700 p-2 text-sm placeholder-gray-400 focus:border-gray-500 focus:ring focus:ring-gray-500 focus:outline-none sm:text-lg'
+        className='mt-6 w-full rounded border border-gray-600 bg-gray-700 p-2 placeholder-gray-400 focus:border-gray-500 focus:ring focus:ring-gray-500 focus:outline-none sm:text-lg'
       />
 
       <div className='mt-4 h-72 overflow-y-auto rounded border border-gray-600'>

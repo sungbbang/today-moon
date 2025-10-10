@@ -50,7 +50,7 @@ function WishForm({ setIsSubmitted }: WishFormProps) {
           onChange={e => setWish(e.target.value)}
           type='text'
           placeholder='소원을 적어보세요...'
-          className='w-full rounded-lg border border-gray-600 bg-black/30 p-3 text-sm text-white placeholder-gray-400 transition-all duration-200 focus:border-blue-400 focus:ring focus:ring-blue-400/30 focus:outline-none md:text-lg'
+          className='w-full rounded-lg border border-gray-600 bg-black/30 p-3 placeholder-gray-400 transition-all duration-200 focus:border-blue-400 focus:ring focus:ring-blue-400/30 focus:outline-none md:text-lg'
         />
 
         <button
