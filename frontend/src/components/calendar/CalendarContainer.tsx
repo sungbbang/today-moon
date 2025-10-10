@@ -34,7 +34,7 @@ function CalendarContainer({
     newDate.setDate(newDate.getDate() + days);
     setDate(newDate);
 
-    setTimeout(() => setIsChanging(false), 300);
+    setTimeout(() => setIsChanging(false), 200);
   };
 
   return (

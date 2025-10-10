@@ -1,8 +1,7 @@
 import MoonImage from './MoonImage';
 import { getMoonPhase, getMoonTimes } from '../../utils/moon';
 import MoonInfo from './MoonInfo';
-
-const IMAGE_COUNT = 29;
+import { IMAGE_COUNT } from '../../utils/image';
 
 function MoonContainer({
   date,
