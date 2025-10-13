@@ -1,7 +1,7 @@
 import MoonImage from './MoonImage';
-import { getMoonPhase, getMoonTimes } from '../../utils/moon';
+import { getMoonTimes } from '../../utils/moon';
 import MoonInfo from './MoonInfo';
-import { IMAGE_COUNT } from '../../utils/image';
+import korLunar from 'kor-lunar';
 
 function MoonContainer({
   date,
@@ -10,8 +10,12 @@ function MoonContainer({
   date: Date;
   coordinate: { lat: number; lon: number };
 }) {
-  const phase = getMoonPhase(date);
-  const imageIdx = Math.round(phase * IMAGE_COUNT) % IMAGE_COUNT;
+  const y = date.getFullYear();
+  const m = date.getMonth();
+  const d = date.getDate();
+  const lunarDate = korLunar.toLunar(y, m + 1, d);
+  const imageIdx = lunarDate.day - 1;
+
   const { lat, lon } = coordinate;
   const { set, rise } = getMoonTimes(date, lat, lon);
 
