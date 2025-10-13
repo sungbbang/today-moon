@@ -1,20 +1,21 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CalendarNavButton from './CalendarNavButton';
 
 function CalendarContainer({
   date,
+  today,
   setDate,
+  changeDate,
 }: {
   date: Date;
+  today: Date;
   setDate: (date: Date) => void;
+  changeDate: (days: number) => void;
 }) {
   const [isChanging, setIsChanging] = useState(false);
 
-  const isToday = useCallback(() => {
-    const today = new Date();
-    return today.toDateString() === date.toDateString();
-  }, [date]);
+  const isToday = () => today.toDateString() === date.toDateString();
 
   const formatDate = (date: Date): string => {
     const year = date.getFullYear();
@@ -26,13 +27,11 @@ function CalendarContainer({
     ).padStart(2, '0')}`;
   };
 
-  const changeDate = (days: number) => {
+  const handleChangeDate = (days: number) => {
     if (isChanging) return;
     setIsChanging(true);
 
-    const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() + days);
-    setDate(newDate);
+    changeDate(days);
 
     setTimeout(() => setIsChanging(false), 200);
   };
@@ -40,7 +39,7 @@ function CalendarContainer({
   return (
     <div className='flex w-full max-w-lg items-center justify-between'>
       <CalendarNavButton
-        onClick={() => changeDate(-1)}
+        onClick={() => handleChangeDate(-1)}
         aria-label='이전 날짜'
         disabled={isChanging}
       >
@@ -49,7 +48,7 @@ function CalendarContainer({
 
       <h3
         onClick={() => {
-          if (!isToday()) setDate(new Date());
+          if (!isToday()) setDate(today);
         }}
         className={`cursor-pointer text-2xl font-semibold transition-transform duration-300 md:text-3xl ${
           isToday() ? 'text-sky-500' : 'text-white hover:scale-110'
@@ -59,7 +58,7 @@ function CalendarContainer({
       </h3>
 
       <CalendarNavButton
-        onClick={() => changeDate(1)}
+        onClick={() => handleChangeDate(1)}
         aria-label='다음 날짜'
         disabled={isChanging}
       >

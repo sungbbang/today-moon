@@ -11,8 +11,15 @@ function MainScreen({ isPreloading }: { isPreloading: boolean }) {
     lat: 37.56682420267543,
     lon: 126.978652258823,
   });
-  const [date, setDate] = useState<Date>(new Date());
+  const today = new Date();
+  const [date, setDate] = useState<Date>(today);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const changeDate = (days: number) => {
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + days);
+    setDate(newDate);
+  };
 
   return (
     <div className='flex flex-col items-center gap-8 md:gap-12 lg:gap-16'>
@@ -28,8 +35,17 @@ function MainScreen({ isPreloading }: { isPreloading: boolean }) {
             coordinate={coordinate}
             setCoordinate={setCoordinate}
           />
-          <CalendarContainer date={date} setDate={setDate} />
-          <MoonContainer date={date} coordinate={coordinate} />
+          <CalendarContainer
+            date={date}
+            today={today}
+            setDate={setDate}
+            changeDate={changeDate}
+          />
+          <MoonContainer
+            date={date}
+            changeDate={changeDate}
+            coordinate={coordinate}
+          />
           <WishButton setIsModalOpen={setIsModalOpen} />
           {isModalOpen && (
             <Modal onClose={() => setIsModalOpen(false)}>
