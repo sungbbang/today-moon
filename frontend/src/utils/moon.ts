@@ -36,7 +36,7 @@ export function getMoonPhaseName(imageIdx: number) {
   if (imageIdx === 22) {
     return { ko: '하현달', en: 'third quarter' };
   }
-  if (23 <= imageIdx && imageIdx <= 28) {
+  if (23 <= imageIdx && imageIdx <= 29) {
     return { ko: '그믐달', en: 'waning crescent' };
   }
   return { ko: '', en: '' };

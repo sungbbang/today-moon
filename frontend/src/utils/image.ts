@@ -1,4 +1,8 @@
-export const IMAGE_COUNT = 29;
+export const IMAGE_COUNT = 30;
+
+const MOON_IMAGES = Array.from({ length: IMAGE_COUNT }, (_, i) => {
+  return `/moon-phase/${i}.jpg`;
+});
 
 export const moonImages: HTMLImageElement[] = [];
 
@@ -19,7 +23,7 @@ export async function preloadMoonImages(count: number): Promise<void> {
         resolve();
       };
 
-      img.src = `/moon_phase/${i}.jpg`;
+      img.src = MOON_IMAGES[i];
     });
   };
 
