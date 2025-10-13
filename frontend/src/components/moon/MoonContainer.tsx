@@ -6,9 +6,11 @@ import korLunar from 'kor-lunar';
 function MoonContainer({
   date,
   coordinate,
+  changeDate,
 }: {
   date: Date;
   coordinate: { lat: number; lon: number };
+  changeDate: (days: number) => void;
 }) {
   const y = date.getFullYear();
   const m = date.getMonth();
@@ -21,7 +23,11 @@ function MoonContainer({
 
   return (
     <div className='flex flex-col items-center gap-y-4'>
-      <MoonImage imageIdx={imageIdx} />
+      <MoonImage
+        imageIdx={imageIdx}
+        onSwipe={dir => changeDate(dir === 'left' ? 1 : -1)}
+      />
+
       <MoonInfo imageIdx={imageIdx} set={set} rise={rise} />
     </div>
   );
