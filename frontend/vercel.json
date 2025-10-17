@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/moon_phase/(.*)",
+      "source": "/moon-phase/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
