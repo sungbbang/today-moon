@@ -9,12 +9,9 @@ function Header({
     <header className='py-6 text-center'>
       <h1
         onClick={onClick}
-        className='group inline-block cursor-pointer text-3xl text-white transition-all duration-300 hover:scale-105 sm:text-4xl md:text-5xl'
+        className='inline-block cursor-pointer text-3xl transition-all duration-300 hover:scale-105 sm:text-4xl md:text-5xl'
       >
-        오늘의{' '}
-        <span className='transition-all duration-300 group-hover:text-yellow-200'>
-          달 🌙
-        </span>
+        오늘의 달 🌙
       </h1>
     </header>
   );
