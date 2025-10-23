@@ -40,7 +40,7 @@ router.get('/search', async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    console.error(error.response?.data || error.message);
+    console.error(error.response?.data || error.status);
     res.status(500).json({ error: '서버 오류가 발생했습니다.' });
   }
 });
@@ -57,18 +57,58 @@ router.get('/coord2address', async (req, res) => {
       }
     );
 
-    const doc = response.data.documents?.[0];
+    const data = response.data;
 
-    const result = {
-      region_1depth_name: doc.address.region_1depth_name || '',
-      region_2depth_name: doc.address.region_2depth_name || '',
-      region_3depth_name: doc.address.region_3depth_name || '',
-    };
+    if (data.meta.total_count === 0) {
+      return res.json({ status: '', result: [] });
+    }
 
-    res.json(result);
+    // const doc = response.data.documents?.[0];
+
+    // const result = {
+    //   region_1depth_name: doc.address.region_1depth_name || '',
+    //   region_2depth_name: doc.address.region_2depth_name || '',
+    //   region_3depth_name: doc.address.region_3depth_name || '',
+    // };
+
+    res.json(response.data.documents[0]);
   } catch (error) {
-    console.error(error.response?.data || error.message);
+    console.error(error.response?.data || error.status);
     res.status(500).json({ error: '서버 오류가 발생했습니다.' });
+  }
+});
+
+router.get('/coord2regioncode', async (req, res) => {
+  const { lat, lon } = req.query;
+
+  try {
+    const response = await axios.get(
+      'https://dapi.kakao.com/v2/local/geo/coord2regioncode.json',
+      {
+        params: { x: lon, y: lat },
+        headers: requestHeader,
+      }
+    );
+
+    const data = response.data;
+
+    if (data.meta.total_count === 0) {
+      return res.json({ status: 'success', result: null });
+    }
+
+    // 법정동을 기준으로 응답
+    let regionData = data.documents.find(doc => doc.region_type === 'B');
+    // 법정동 데이터가 없고 행정동 데이터만 있는 경우
+    if (!regionData) {
+      regionData = data.documents.find(doc => doc.region_type === 'H');
+    }
+
+    res.json({ status: 'success', result: regionData });
+  } catch (error) {
+    console.error(error.response.data || error.status);
+    res
+      .status(500)
+      .json({ status: 'error', message: '서버 오류가 발생했습니다.' });
   }
 });
 
