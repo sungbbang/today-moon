@@ -14,7 +14,8 @@ function DatePicker({
   setDate: (date: Date) => void;
   onClose: () => void;
 }) {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const isMobileInit = typeof window !== 'undefined' && window.innerWidth < 400;
+  const [isMobile, setIsMobile] = useState<boolean>(isMobileInit);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 400);
