@@ -16,19 +16,25 @@ export type AddressResult = {
   region_3depth_name: string;
 };
 
+export type RegionResult = {
+  region_1depth_name: string;
+  region_2depth_name: string;
+  region_3depth_name: string;
+};
+
 export type Coordinate = {
   lat: number;
   lon: number;
 };
 
-export const fetchPlaces = async (query: string): Promise<Place[]> => {
+export const getPlaces = async (query: string): Promise<Place[]> => {
   const res = await axios.get(`${baseURL}/api/kakao/search`, {
     params: { query },
   });
   return res.data;
 };
 
-export const fetchAddressByCoord = async ({
+export const getAddressByCoord = async ({
   lat,
   lon,
 }: Coordinate): Promise<AddressResult> => {
@@ -36,4 +42,19 @@ export const fetchAddressByCoord = async ({
     params: { lat, lon },
   });
   return res.data;
+};
+
+export const getRegionByCoord = async ({
+  lat,
+  lon,
+}: Coordinate): Promise<RegionResult> => {
+  try {
+    const res = await axios.get(`${baseURL}/api/kakao/coord2regioncode`, {
+      params: { lat, lon },
+    });
+    return res.data.result;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Failed to get region data');
+  }
 };

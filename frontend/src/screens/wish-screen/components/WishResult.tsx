@@ -1,6 +1,6 @@
 import { IoIosLink } from 'react-icons/io';
 import { SiKakaotalk } from 'react-icons/si';
-import { useKakao } from '../../hooks/useKakao';
+import { useKakao } from '../../../hooks/useKakao';
 
 const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
