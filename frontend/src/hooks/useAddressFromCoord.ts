@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import {
-  fetchAddressByCoord,
+  getAddressByCoord,
   type AddressResult,
   type Coordinate,
-} from '../api/kakao';
+} from '../screens/moon-screen/api/kakao';
 
 export function useAddressByCoordinate(coordinate: Coordinate) {
   const { lat, lon } = coordinate;
 
   return useQuery<AddressResult>({
     queryKey: ['address', lat, lon],
-    queryFn: () => fetchAddressByCoord({ lat: lat, lon: lon }),
+    queryFn: () => getAddressByCoord({ lat: lat, lon: lon }),
     enabled: !!lat && !!lon,
     staleTime: 5 * 60 * 1000,
   });
