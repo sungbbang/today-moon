@@ -8,9 +8,13 @@ import MoonPhaseName from './MoonPhaseName';
 function MoonContainer({
   date,
   setDate,
+  minDate,
+  maxDate,
 }: {
   date: Date;
   setDate: (date: Date) => void;
+  minDate: Date;
+  maxDate: Date;
 }) {
   const y = date.getFullYear();
   const m = date.getMonth();
@@ -35,20 +39,25 @@ function MoonContainer({
     return () => toast.dismiss(id);
   }, []);
 
+  const handleSwipe = (dir: 'left' | 'right') => {
+    const newDate = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    );
+
+    if (dir === 'left' && newDate < maxDate) {
+      newDate.setDate(newDate.getDate() + 1);
+    } else if (dir === 'right' && newDate > minDate) {
+      newDate.setDate(newDate.getDate() - 1);
+    }
+
+    setDate(newDate);
+  };
+
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-2 sm:gap-4'>
-      <MoonImage
-        imageIdx={imageIdx}
-        onSwipe={dir => {
-          const newDate = new Date(date);
-          if (dir === 'left') {
-            newDate.setDate(d + 1);
-          } else {
-            newDate.setDate(d - 1);
-          }
-          setDate(newDate);
-        }}
-      />
+      <MoonImage imageIdx={imageIdx} onSwipe={handleSwipe} />
       <MoonPhaseName imageIdx={imageIdx} />
       <Toaster />
     </div>

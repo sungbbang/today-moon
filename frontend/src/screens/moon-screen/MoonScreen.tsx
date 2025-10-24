@@ -13,10 +13,24 @@ function MoonScreen({
   date: Date;
   setDate: (date: Date) => void;
 }) {
+  const minDate = new Date(today.getFullYear(), today.getMonth() - 1);
+  const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 0);
+
   return (
     <>
-      <MoonContainer date={date} setDate={setDate} />
-      <DateNavigator today={today} date={date} setDate={setDate} />
+      <MoonContainer
+        date={date}
+        setDate={setDate}
+        minDate={minDate}
+        maxDate={maxDate}
+      />
+      <DateNavigator
+        today={today}
+        date={date}
+        setDate={setDate}
+        minDate={minDate}
+        maxDate={maxDate}
+      />
       <MoonInfoContainer date={date} />
       <button
         className='mt-10 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 px-4 py-2 sm:text-lg'

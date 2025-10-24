@@ -10,10 +10,14 @@ function DateNavigator({
   today,
   date,
   setDate,
+  minDate,
+  maxDate,
 }: {
   today: Date;
   date: Date;
   setDate: (date: Date) => void;
+  minDate: Date;
+  maxDate: Date;
 }) {
   const y = date.getFullYear();
   const m = date.getMonth() + 1;
@@ -49,9 +53,10 @@ function DateNavigator({
 
       {isPickerOpen && (
         <DatePicker
-          today={today}
           date={date}
           setDate={setDate}
+          minDate={minDate}
+          maxDate={maxDate}
           onClose={() => setIsPickerOpen(false)}
         />
       )}

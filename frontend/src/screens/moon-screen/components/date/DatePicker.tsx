@@ -4,14 +4,16 @@ import { ko } from 'react-day-picker/locale';
 import 'react-day-picker/style.css';
 
 function DatePicker({
-  today,
   date,
   setDate,
+  minDate,
+  maxDate,
   onClose,
 }: {
-  today: Date;
   date: Date;
   setDate: (date: Date) => void;
+  minDate: Date;
+  maxDate: Date;
   onClose: () => void;
 }) {
   const isMobileInit = typeof window !== 'undefined' && window.innerWidth < 400;
@@ -25,8 +27,6 @@ function DatePicker({
   }, []);
 
   const defaultClassNames = getDefaultClassNames();
-  const startDate = new Date(today.getFullYear(), today.getMonth() - 1);
-  const endDate = new Date(today.getFullYear(), today.getMonth() + 1);
 
   const handleSelect = (selected: Date | undefined) => {
     if (selected) {
@@ -42,8 +42,8 @@ function DatePicker({
       locale={ko}
       mode='single'
       captionLayout='dropdown-months'
-      startMonth={startDate}
-      endMonth={endDate}
+      startMonth={minDate}
+      endMonth={maxDate}
       selected={date}
       defaultMonth={date}
       onSelect={handleSelect}
