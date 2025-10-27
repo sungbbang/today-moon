@@ -45,7 +45,7 @@ function App() {
     >
       <Header onClick={() => setCurrentView('intro')} />
 
-      <main className='my-8 flex flex-1 flex-col items-center justify-center px-8'>
+      <main className='my-8 flex flex-1 flex-col items-center justify-center'>
         {screens[currentView]}
       </main>
 
