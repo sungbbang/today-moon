@@ -17,7 +17,7 @@ function MoonScreen({
   const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 0);
 
   return (
-    <>
+    <div className='flex flex-col items-center justify-center px-8'>
       <MoonContainer
         date={date}
         setDate={setDate}
@@ -38,7 +38,7 @@ function MoonScreen({
       >
         소원 빌기
       </button>
-    </>
+    </div>
   );
 }
 
