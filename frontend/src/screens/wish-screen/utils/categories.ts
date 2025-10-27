@@ -1,14 +1,9 @@
-import { GiTakeMyMoney } from 'react-icons/gi';
-import { IoSchoolOutline, IoBusinessOutline } from 'react-icons/io5';
-import { PiClover } from 'react-icons/pi';
-import { CiMedicalCross } from 'react-icons/ci';
-import { IoIosHeartEmpty } from 'react-icons/io';
-
 export const categories = [
-  { label: '사랑', icon: IoIosHeartEmpty },
-  { label: '건강', icon: CiMedicalCross },
-  { label: '재물', icon: GiTakeMyMoney },
-  { label: '학업', icon: IoSchoolOutline },
-  { label: '직장', icon: IoBusinessOutline },
-  { label: '행운', icon: PiClover },
+  { label: '사랑', icon: '❤️', value: 'love' },
+  { label: '건강', icon: '💪', value: 'health' },
+  { label: '학업', icon: '📚', value: 'study' },
+  { label: '직장', icon: '💼', value: 'job' },
+  { label: '금전', icon: '💸', value: 'wealth' },
+  { label: '행운', icon: '🍀', value: 'luck' },
+  { label: '기타', icon: '💬', value: 'etc' },
 ];
