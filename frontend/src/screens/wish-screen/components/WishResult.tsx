@@ -1,7 +1,7 @@
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { IoMdLink } from 'react-icons/io';
 import { useKakaoShare } from '../../../hooks/useKakaoShare';
-import QnA from './qna';
+import QnA from './QnA';
 
 const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
