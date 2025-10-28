@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import IntroScreen from './screens/intro-screen/IntroScreen';
 import MoonScreen from './screens/moon-screen/MoonScreen';
 import WishScreen from './screens/wish-screen/WishScreen';
+import { Analytics } from '@vercel/analytics/react';
 
 type View = 'intro' | 'moon' | 'wish';
 
@@ -50,6 +51,8 @@ function App() {
       </main>
 
       <Footer />
+
+      <Analytics />
     </div>
   );
 }
