@@ -27,11 +27,17 @@ function MoonImage({
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
       >
-        <img
+        <motion.img
           src={moonImages[imageIdx].src}
           alt='달 사진'
           draggable={false}
           className='h-full w-full rounded-full object-cover brightness-125'
+          animate={{ y: [0, -10, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
         />
       </motion.div>
     </AnimatePresence>
