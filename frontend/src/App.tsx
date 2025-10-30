@@ -12,8 +12,9 @@ function App() {
   const [currentView, setCurrentView] = useState<View>('intro');
   const [isPreloading, setIsPreloading] = useState<boolean>(true);
 
-  // moon screen이 언마운트돼도 날짜 유지하기 위해 상위 컴포넌트에서 상태 관리
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const [date, setDate] = useState<Date>(today);
 
   const screens = {

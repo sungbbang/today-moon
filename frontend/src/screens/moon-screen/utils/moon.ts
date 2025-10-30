@@ -14,13 +14,14 @@ export function getMoonPosition(
   latitude: number,
   longitude: number,
 ) {
-  const { distance } = SunCalc.getMoonPosition(date, latitude, longitude);
-  return { distance };
+  const { azimuth, altitude, distance, parallacticAngle } =
+    SunCalc.getMoonPosition(date, latitude, longitude);
+  return { azimuth, altitude, distance, parallacticAngle };
 }
 
 export function getMoonPhase(timeAndDate: Date) {
-  const { phase } = SunCalc.getMoonIllumination(timeAndDate);
-  return phase;
+  const { phase, fraction } = SunCalc.getMoonIllumination(timeAndDate);
+  return { phase, fraction };
 }
 
 export function getMoonPhaseName(imageIdx: number) {

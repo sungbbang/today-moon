@@ -10,16 +10,19 @@ function MoonContainer({
   setDate,
   minDate,
   maxDate,
+  rotateDeg,
 }: {
   date: Date;
   setDate: (date: Date) => void;
   minDate: Date;
   maxDate: Date;
+  rotateDeg: number;
 }) {
   const y = date.getFullYear();
   const m = date.getMonth();
   const d = date.getDate();
   const lunarDate = korLunar.toLunar(y, m + 1, d);
+
   const imageIdx = lunarDate.day - 1;
 
   useEffect(() => {
@@ -57,7 +60,11 @@ function MoonContainer({
 
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-2 sm:gap-4'>
-      <MoonImage imageIdx={imageIdx} onSwipe={handleSwipe} />
+      <MoonImage
+        imageIdx={imageIdx}
+        onSwipe={handleSwipe}
+        rotateDeg={rotateDeg}
+      />
       <MoonPhaseName imageIdx={imageIdx} />
       <Toaster />
     </div>

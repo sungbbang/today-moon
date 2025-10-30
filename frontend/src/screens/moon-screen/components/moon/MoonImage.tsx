@@ -1,13 +1,16 @@
 import { useSwipeable } from 'react-swipeable';
 import { moonImages } from '../../../../utils/image';
+import { posAngle } from '../../../../utils/posAngle';
 import { motion, AnimatePresence } from 'motion/react';
 
 function MoonImage({
   imageIdx,
   onSwipe,
+  rotateDeg,
 }: {
   imageIdx: number;
   onSwipe: (direction: 'left' | 'right') => void;
+  rotateDeg: number;
 }) {
   const handlers = useSwipeable({
     onSwipedLeft: () => onSwipe('left'),
@@ -32,11 +35,20 @@ function MoonImage({
           alt='달 사진'
           draggable={false}
           className='h-full w-full rounded-full object-cover brightness-125'
+          style={{ rotate: `${posAngle[imageIdx] + rotateDeg}deg` }}
           animate={{ y: [0, -10, 0] }}
+          whileHover={{ scale: 1.05 }}
           transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
+            y: {
+              duration: 3,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            },
+            scale: {
+              type: 'spring',
+              stiffness: 300,
+              damping: 20,
+            },
           }}
         />
       </motion.div>
