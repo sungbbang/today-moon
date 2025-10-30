@@ -5,6 +5,11 @@
   font-family: 'NanumSquare', sans-serif;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 @layer utilities {
   @keyframes float {
     0% {
