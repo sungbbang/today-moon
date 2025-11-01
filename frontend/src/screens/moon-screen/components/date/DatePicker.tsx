@@ -29,8 +29,12 @@ function DatePicker({
   const defaultClassNames = getDefaultClassNames();
 
   const handleSelect = (selected: Date | undefined) => {
+    const newDate = new Date(date);
     if (selected) {
-      setDate(selected);
+      newDate.setFullYear(selected.getFullYear());
+      newDate.setMonth(selected.getMonth());
+      newDate.setDate(selected.getDate());
+      setDate(newDate);
       onClose();
     }
   };

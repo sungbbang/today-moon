@@ -1,8 +1,6 @@
 import DateNavigator from './components/date/DateNavigator';
 import MoonContainer from './components/moon/MoonContainer';
 import MoonInfoContainer from './components/moon/MoonInfoContainer';
-import { useCurrentLocation } from './hooks/useCurrentLocation';
-import { getMoonPosition } from './utils/moon';
 
 function MoonScreen({
   onClick,
@@ -18,13 +16,6 @@ function MoonScreen({
   const minDate = new Date(today.getFullYear(), today.getMonth() - 1);
   const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 0);
 
-  const {
-    location: { latitude, longitude },
-  } = useCurrentLocation();
-
-  const { parallacticAngle } = getMoonPosition(date, latitude, longitude);
-  const rotateDeg = parallacticAngle * (180 / Math.PI);
-
   return (
     <div className='flex flex-col items-center justify-center px-8'>
       <MoonContainer
@@ -32,7 +23,6 @@ function MoonScreen({
         setDate={setDate}
         minDate={minDate}
         maxDate={maxDate}
-        rotateDeg={rotateDeg}
       />
       <DateNavigator
         today={today}

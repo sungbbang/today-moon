@@ -13,8 +13,6 @@ function App() {
   const [isPreloading, setIsPreloading] = useState<boolean>(true);
 
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
   const [date, setDate] = useState<Date>(today);
 
   const screens = {

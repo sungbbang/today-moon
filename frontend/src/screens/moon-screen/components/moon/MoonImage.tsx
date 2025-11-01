@@ -6,11 +6,9 @@ import { motion, AnimatePresence } from 'motion/react';
 function MoonImage({
   imageIdx,
   onSwipe,
-  rotateDeg,
 }: {
   imageIdx: number;
   onSwipe: (direction: 'left' | 'right') => void;
-  rotateDeg: number;
 }) {
   const handlers = useSwipeable({
     onSwipedLeft: () => onSwipe('left'),
@@ -22,7 +20,7 @@ function MoonImage({
   return (
     <AnimatePresence mode='wait'>
       <motion.div
-        key={imageIdx}
+        key={Date.now()}
         {...handlers}
         className='relative aspect-square w-full max-w-md'
         initial={{ opacity: 0 }}
@@ -35,7 +33,7 @@ function MoonImage({
           alt='달 사진'
           draggable={false}
           className='h-full w-full rounded-full object-cover brightness-125'
-          style={{ rotate: `${posAngle[imageIdx] + rotateDeg}deg` }}
+          style={{ rotate: `${posAngle[imageIdx]}deg` }}
           animate={{ y: [0, -10, 0] }}
           whileHover={{ scale: 1.05 }}
           transition={{

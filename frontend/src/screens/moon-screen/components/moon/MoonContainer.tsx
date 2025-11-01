@@ -10,13 +10,11 @@ function MoonContainer({
   setDate,
   minDate,
   maxDate,
-  rotateDeg,
 }: {
   date: Date;
   setDate: (date: Date) => void;
   minDate: Date;
   maxDate: Date;
-  rotateDeg: number;
 }) {
   const y = date.getFullYear();
   const m = date.getMonth();
@@ -43,11 +41,7 @@ function MoonContainer({
   }, []);
 
   const handleSwipe = (dir: 'left' | 'right') => {
-    const newDate = new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-    );
+    const newDate = new Date(date);
 
     if (dir === 'left' && newDate < maxDate) {
       newDate.setDate(newDate.getDate() + 1);
@@ -60,11 +54,7 @@ function MoonContainer({
 
   return (
     <div className='relative flex w-full flex-col items-center justify-center gap-2 sm:gap-4'>
-      <MoonImage
-        imageIdx={imageIdx}
-        onSwipe={handleSwipe}
-        rotateDeg={rotateDeg}
-      />
+      <MoonImage imageIdx={imageIdx} onSwipe={handleSwipe} />
       <MoonPhaseName imageIdx={imageIdx} />
       <Toaster />
     </div>
