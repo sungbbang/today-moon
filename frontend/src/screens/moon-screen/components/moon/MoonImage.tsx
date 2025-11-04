@@ -22,7 +22,7 @@ function MoonImage({
       <motion.div
         key={Date.now()}
         {...handlers}
-        className='relative aspect-square w-full max-w-md'
+        className='relative aspect-square w-full max-w-md select-none'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
