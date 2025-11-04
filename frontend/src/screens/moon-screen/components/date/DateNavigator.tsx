@@ -5,6 +5,7 @@ import {
 } from 'react-icons/io5';
 import DatePicker from './DatePicker';
 import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
 
 function DateNavigator({
   today,
@@ -31,7 +32,7 @@ function DateNavigator({
       <div className='flex items-center justify-between'>
         <button
           onClick={() => setDate(today)}
-          className={`p-2 text-2xl text-sky-500 ${isToday ? 'invisible' : 'visible'}`}
+          className={`cursor-pointer p-2 text-2xl text-sky-500 ${isToday ? 'invisible' : 'visible'}`}
         >
           {today > date ? (
             <IoArrowForwardCircleOutline />
@@ -46,20 +47,25 @@ function DateNavigator({
           {y}년 {String(m).padStart(2, '0')}월 {String(d).padStart(2, '0')}일
         </div>
 
-        <button onClick={() => setIsPickerOpen(true)} className='p-2 text-2xl'>
+        <button
+          onClick={() => setIsPickerOpen(true)}
+          className='cursor-pointer p-2 text-2xl'
+        >
           <FcCalendar />
         </button>
       </div>
 
-      {isPickerOpen && (
-        <DatePicker
-          date={date}
-          setDate={setDate}
-          minDate={minDate}
-          maxDate={maxDate}
-          onClose={() => setIsPickerOpen(false)}
-        />
-      )}
+      <AnimatePresence>
+        {isPickerOpen && (
+          <DatePicker
+            date={date}
+            setDate={setDate}
+            minDate={minDate}
+            maxDate={maxDate}
+            onClose={() => setIsPickerOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -124,7 +124,7 @@ function WishForm({
         <button
           type='submit'
           disabled={isSubmitting}
-          className={`mt-6 cursor-pointer rounded-xl bg-black py-3 text-lg font-semibold text-white duration-300 hover:bg-blue-500 disabled:cursor-progress ${step === labelItems.length - 1 ? 'visible' : 'invisible'} ${isSubmitting ? 'cursor-not-allowed opacity-50' : ''}`}
+          className={`mt-6 cursor-pointer rounded-xl bg-black py-3 text-lg font-semibold text-white duration-300 disabled:cursor-progress ${step === labelItems.length - 1 ? 'visible' : 'invisible'} ${isSubmitting ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-500'}`}
         >
           {isSubmitting ? '제출 중...' : '제출'}
         </button>

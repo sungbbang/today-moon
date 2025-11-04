@@ -33,7 +33,7 @@ function MoonScreen({
       />
       <MoonInfoContainer date={date} />
       <button
-        className='mt-10 rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 px-4 py-2 sm:text-lg'
+        className='mt-10 cursor-pointer rounded-lg bg-gradient-to-r from-fuchsia-500 to-cyan-500 px-4 py-2 duration-300 hover:scale-110 sm:text-lg'
         onClick={onClick}
       >
         소원 빌기

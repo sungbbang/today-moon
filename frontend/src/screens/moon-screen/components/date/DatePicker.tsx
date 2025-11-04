@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DayPicker, getDefaultClassNames } from 'react-day-picker';
 import { ko } from 'react-day-picker/locale';
+import { motion } from 'motion/react';
 import 'react-day-picker/style.css';
 
 function DatePicker({
@@ -57,6 +58,7 @@ function DatePicker({
         root: `${defaultClassNames.root} flex rounded-md justify-center p-5 bg-white text-black h-[384px]`,
         chevron: `${defaultClassNames.chevron} fill-black`,
         months: `${defaultClassNames.months} text-center`,
+        dropdown_root: `${defaultClassNames.dropdown_root} cursor-pointer`,
       }}
     />
   );
@@ -64,29 +66,57 @@ function DatePicker({
   return (
     <>
       {isMobile ? (
-        <div className='fixed inset-0 z-50 flex items-end justify-center bg-black/40'>
-          <div className='animate-slide-up w-full rounded-t-2xl bg-white p-4 text-right shadow-lg'>
+        <motion.div
+          className='fixed inset-0 z-50 flex items-end justify-center bg-black/40'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={onClose}
+        >
+          <motion.div
+            className='w-full rounded-t-2xl bg-white p-4 text-right shadow-lg'
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            onClick={e => e.stopPropagation()}
+          >
             <button
               onClick={onClose}
-              className='mb-2 p-2 text-right text-sm text-gray-500'
+              className='mb-2 cursor-pointer p-2 text-right text-sm text-gray-500'
             >
               닫기
             </button>
             {dayPickerElement}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       ) : (
-        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/40'>
-          <div className='rounded-xl bg-white p-6 text-right shadow-xl'>
+        <motion.div
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black/40'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={onClose}
+        >
+          <motion.div
+            className='rounded-xl bg-white p-6 text-right shadow-xl'
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            onClick={e => e.stopPropagation()}
+          >
             <button
               onClick={onClose}
-              className='mb-3 p-2 text-sm text-gray-500'
+              className='mb-3 cursor-pointer p-2 text-sm text-gray-500'
             >
               닫기
             </button>
             {dayPickerElement}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </>
   );

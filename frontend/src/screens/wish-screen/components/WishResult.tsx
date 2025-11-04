@@ -32,14 +32,14 @@ function WishResult({ onClick }: { onClick: () => void }) {
             <div className='flex flex-col gap-3 sm:flex-row'>
               <button
                 onClick={handleKakaoShare}
-                className='flex flex-1 items-center justify-center gap-2 rounded-xl border border-yellow-300 bg-gradient-to-br from-yellow-100 to-yellow-200 py-3 font-semibold text-yellow-900 shadow-sm transition-all hover:from-yellow-200 hover:to-yellow-100 hover:shadow-md active:scale-95'
+                className='flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-yellow-300 bg-gradient-to-br from-yellow-100 to-yellow-200 py-3 font-semibold text-yellow-900 shadow-sm transition-all hover:from-yellow-200 hover:to-yellow-100 hover:shadow-md active:scale-95'
               >
                 <RiKakaoTalkFill className='bg-yellow-300 text-2xl' />
                 <span className='text-sm sm:text-base'>카카오톡</span>
               </button>
               <button
                 onClick={handleCopyLink}
-                className='flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 py-3 font-semibold text-gray-800 shadow-sm transition-all hover:from-gray-50 hover:to-white hover:shadow-md active:scale-95'
+                className='flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 py-3 font-semibold text-gray-800 shadow-sm transition-all hover:from-gray-50 hover:to-white hover:shadow-md active:scale-95'
               >
                 <IoMdLink className='text-2xl text-gray-500' />
                 <span className='text-sm sm:text-base'>링크복사</span>

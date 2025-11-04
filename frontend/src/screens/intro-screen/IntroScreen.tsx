@@ -28,7 +28,7 @@ function IntroScreen({
       </p>
       <button
         onClick={onClick}
-        className={`rounded-xl bg-gradient-to-r from-neutral-300 to-stone-400 px-6 py-3 text-xl md:text-2xl ${HOVER}`}
+        className={`rounded-xl bg-gradient-to-r from-neutral-300 to-stone-400 px-6 py-3 text-xl md:text-2xl ${HOVER} cursor-pointer`}
       >
         달 보러가기
       </button>
