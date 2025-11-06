@@ -79,7 +79,7 @@ function DatePicker({
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             onClick={e => e.stopPropagation()}
           >
             <button
@@ -102,10 +102,10 @@ function DatePicker({
         >
           <motion.div
             className='rounded-xl bg-white p-6 text-right shadow-xl'
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             onClick={e => e.stopPropagation()}
           >
             <button
