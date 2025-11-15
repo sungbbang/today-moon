@@ -6,13 +6,25 @@ import { motion, AnimatePresence } from 'motion/react';
 function MoonImage({
   imageIdx,
   onSwipe,
+  isBiggerThanMinDate,
+  isSmallerThanMaxDate,
 }: {
   imageIdx: number;
   onSwipe: (direction: 'left' | 'right') => void;
+  isBiggerThanMinDate: boolean;
+  isSmallerThanMaxDate: boolean;
 }) {
   const handlers = useSwipeable({
-    onSwipedLeft: () => onSwipe('left'),
-    onSwipedRight: () => onSwipe('right'),
+    onSwipedLeft: () => {
+      if (isSmallerThanMaxDate) {
+        onSwipe('left');
+      }
+    },
+    onSwipedRight: () => {
+      if (isBiggerThanMinDate) {
+        onSwipe('right');
+      }
+    },
     preventScrollOnSwipe: true,
     trackMouse: true,
   });
