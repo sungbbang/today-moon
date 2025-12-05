@@ -11,6 +11,7 @@
 스터디카페에서 취업 준비를 하던 중, 다른 사람들도 힐링할 수 있길 바라는 마음에 게시판에 QR코드를 붙여 공유했습니다.
 
 **스터디 카페 게시판에 부착한 사진**
+
 <img src="https://github.com/user-attachments/assets/6ff4c451-248e-4a30-ba5e-90160b69e3c1" width="500" height="400"/>
 
 ## 구동 모습
